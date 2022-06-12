@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCraft.DevTools.Reposi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCraft.DevTools.Repositories.Sql", "src\DotNetCraft.DevTools.Repositories.Sql\DotNetCraft.DevTools.Repositories.Sql.csproj", "{69B0C6D4-4033-4B48-81E8-A67E0E135845}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCraft.DevTools.Repositories.Tests", "tests\DotNetCraft.DevTools.Repositories.Tests\DotNetCraft.DevTools.Repositories.Tests.csproj", "{B133580C-EBD7-41FF-AE53-A4BBED806D1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCraft.DevTools.Repositories.SQL.Tests", "tests\DotNetCraft.DevTools.Repositories.SQL.Tests\DotNetCraft.DevTools.Repositories.SQL.Tests.csproj", "{245F4ECB-A734-48E8-8E83-1666F604E155}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{69B0C6D4-4033-4B48-81E8-A67E0E135845}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69B0C6D4-4033-4B48-81E8-A67E0E135845}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69B0C6D4-4033-4B48-81E8-A67E0E135845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B133580C-EBD7-41FF-AE53-A4BBED806D1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B133580C-EBD7-41FF-AE53-A4BBED806D1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B133580C-EBD7-41FF-AE53-A4BBED806D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B133580C-EBD7-41FF-AE53-A4BBED806D1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{245F4ECB-A734-48E8-8E83-1666F604E155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{245F4ECB-A734-48E8-8E83-1666F604E155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{245F4ECB-A734-48E8-8E83-1666F604E155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{245F4ECB-A734-48E8-8E83-1666F604E155}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
