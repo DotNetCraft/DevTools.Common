@@ -1,0 +1,11 @@
+src/DotNetCraft.DevTools.Abstraction/bin/
+src/DotNetCraft.DevTools.Abstraction/obj/
+src/DotNetCraft.DevTools.Repositories.Abstraction/.vs/
+src/DotNetCraft.DevTools.Repositories.Abstraction/bin/
+src/DotNetCraft.DevTools.Repositories.Abstraction/obj/
+src/DotNetCraft.DevTools.Repositories.Sql/bin/
+src/DotNetCraft.DevTools.Repositories.Sql/obj/
+tests/DotNetCraft.DevTools.Repositories.SQL.Tests/bin/
+tests/DotNetCraft.DevTools.Repositories.SQL.Tests/obj/
+tests/DotNetCraft.DevTools.Repositories.Tests/bin/
+tests/DotNetCraft.DevTools.Repositories.Tests/obj/
