@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -24,6 +25,7 @@ namespace DotNetCraft.DevTools.Repositories.Sql
         {
             var propertyInfo = typeof(TEntity).GetProperty("Id", BindingFlags.Public | BindingFlags.Instance);
             _parameterExpression = Expression.Parameter(typeof(TEntity), "entity");
+            Debug.Assert(propertyInfo != null, nameof(propertyInfo) + " != null");
             _property = Expression.Property(_parameterExpression, propertyInfo.Name);
         }
 
