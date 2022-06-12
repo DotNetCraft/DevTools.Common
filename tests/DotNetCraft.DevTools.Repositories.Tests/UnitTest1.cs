@@ -1,3 +1,5 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace DotNetCraft.DevTools.Repositories.Tests
 {
     [TestClass]

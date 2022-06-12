@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 using DotNetCraft.DevTools.Repositories.Abstraction;
 
 namespace DotNetCraft.DevTools.Repositories.SQL.Tests.Entities

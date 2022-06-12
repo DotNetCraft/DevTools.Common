@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using System;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNetCraft.DevTools.Repositories.SQL.Tests

@@ -1,4 +1,6 @@
-﻿namespace DotNetCraft.DevTools.Repositories.SQL.Tests.Entities
+﻿using System;
+
+namespace DotNetCraft.DevTools.Repositories.SQL.Tests.Entities
 {
     internal class Person
     {
