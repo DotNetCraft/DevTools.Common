@@ -9,3 +9,4 @@ tests/DotNetCraft.DevTools.Repositories.SQL.Tests/bin/
 tests/DotNetCraft.DevTools.Repositories.SQL.Tests/obj/
 tests/DotNetCraft.DevTools.Repositories.Tests/bin/
 tests/DotNetCraft.DevTools.Repositories.Tests/obj/
+.vs/
