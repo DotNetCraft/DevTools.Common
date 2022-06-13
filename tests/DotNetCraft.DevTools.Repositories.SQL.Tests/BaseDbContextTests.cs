@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,7 +9,7 @@ namespace DotNetCraft.DevTools.Repositories.SQL.Tests
         where TDbContext : DbContext
     {
         private const string InMemoryConnectionString = "DataSource=:memory:";
-        private readonly SqliteConnection _connection;
+        protected readonly SqliteConnection _connection;
 
         protected readonly TDbContext DbContext;
 
@@ -29,6 +30,7 @@ namespace DotNetCraft.DevTools.Repositories.SQL.Tests
         public void Dispose()
         {
             _connection.Close();
+            _connection.Dispose();
         }
     }
 }

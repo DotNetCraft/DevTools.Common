@@ -12,13 +12,14 @@ using Microsoft.Extensions.Logging;
 
 namespace DotNetCraft.DevTools.Repositories.Sql
 {
-    public class GenericRepository<TEntity, TId> : BaseRepository<TEntity, TId>
+    public class GenericRepository<TDbContext, TEntity, TId> : BaseRepository<TEntity, TId>
+        where TDbContext : DbContext
         where TEntity : class
     {
         private static readonly ParameterExpression _parameterExpression;
         private static readonly MemberExpression _property;
 
-        private readonly DbContext _dbContext;
+        private readonly TDbContext _dbContext;
         private readonly DbSet<TEntity> _dbSet;
 
         static GenericRepository()
@@ -29,7 +30,7 @@ namespace DotNetCraft.DevTools.Repositories.Sql
             _property = Expression.Property(_parameterExpression, propertyInfo.Name);
         }
 
-        public GenericRepository(DbContext dbContext, ILogger<BaseRepository<TEntity, TId>> logger) : base(logger)
+        public GenericRepository(TDbContext dbContext, ILogger<BaseRepository<TEntity, TId>> logger) : base(logger)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
             _dbSet = _dbContext.Set<TEntity>();

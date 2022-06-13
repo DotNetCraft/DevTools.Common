@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\DotNetCraft.DevTools.Repositories.SqlServer\DotNetCraft.DevTools.Repositories.SqlServer.csproj" />
     <ProjectReference Include="..\..\src\DotNetCraft.DevTools.Repositories.Sql\DotNetCraft.DevTools.Repositories.Sql.csproj" />
   </ItemGroup>
 

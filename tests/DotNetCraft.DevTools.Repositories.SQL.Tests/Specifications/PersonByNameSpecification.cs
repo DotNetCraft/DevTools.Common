@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq.Expressions;
 using DotNetCraft.DevTools.Repositories.Abstraction;
+using DotNetCraft.DevTools.Repositories.SQL.Tests.Entities;
 
-namespace DotNetCraft.DevTools.Repositories.SQL.Tests.Entities
+namespace DotNetCraft.DevTools.Repositories.SQL.Tests.Specifications
 {
-    internal class PersonByNameSpecification: IRepositorySpecification<Person>
+    internal class PersonByNameSpecification : IRepositorySpecification<Person>
     {
         private readonly string _name;
 

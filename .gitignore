@@ -10,3 +10,5 @@ tests/DotNetCraft.DevTools.Repositories.SQL.Tests/obj/
 tests/DotNetCraft.DevTools.Repositories.Tests/bin/
 tests/DotNetCraft.DevTools.Repositories.Tests/obj/
 .vs/
+src/DotNetCraft.DevTools.Repositories.SqlServer/obj/
+src/DotNetCraft.DevTools.Repositories.SqlServer/bin/
