@@ -11,7 +11,7 @@ namespace DotNetCraft.DevTools.Repositories.SQL.Tests
 {
 
     [TestClass]
-    public class SimpleRepositoryTests : BaseDbContextTests<TestDbContext>
+    public class GenericRepositoryTests : BaseDbContextTests<TestDbContext>
     {
         [TestInitialize]
         public async Task Init()
