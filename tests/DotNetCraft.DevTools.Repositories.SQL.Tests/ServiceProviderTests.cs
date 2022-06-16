@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DotNetCraft.DevTools.Repositories.Abstraction;
+using DotNetCraft.DevTools.Repositories.Abstraction.Interfaces;
 using DotNetCraft.DevTools.Repositories.Sql;
 using DotNetCraft.DevTools.Repositories.SQL.Tests.DbContexts;
 using DotNetCraft.DevTools.Repositories.SQL.Tests.Entities;

@@ -55,6 +55,8 @@ namespace DotNetCraft.DevTools.Repositories.Sql
         protected override async Task<TEntity> OnInsertAsync(TEntity entity, CancellationToken cancellationToken)
         {
             var result = await _dbSet.AddAsync(entity, cancellationToken);
+            await _dbContext.SaveChangesAsync(cancellationToken);
+
             return result.Entity;
         }
 
@@ -75,6 +77,7 @@ namespace DotNetCraft.DevTools.Repositories.Sql
             }
 
             _dbContext.Entry(entity).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync(cancellationToken);
 
             return entity;
         }
@@ -82,6 +85,7 @@ namespace DotNetCraft.DevTools.Repositories.Sql
         protected override async Task<bool> OnDeleteAsync(TEntity entity, CancellationToken cancellationToken)
         {
             _dbSet.Remove(entity);
+            await _dbContext.SaveChangesAsync(cancellationToken);
             return true;
         }
 
@@ -93,14 +97,7 @@ namespace DotNetCraft.DevTools.Repositories.Sql
             if (entity == null)
                 return false;
 
-            _dbSet.Remove(entity);
-            return true;
-        }
-
-        protected override async Task<int> OnSaveChanges(CancellationToken cancellationToken)
-        {
-            var result = await _dbContext.SaveChangesAsync(cancellationToken);
-            return result;
+            return await OnDeleteAsync(entity, cancellationToken);
         }
     }
 }

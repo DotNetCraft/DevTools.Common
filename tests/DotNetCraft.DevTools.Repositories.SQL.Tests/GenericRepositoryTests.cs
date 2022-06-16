@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using DotNetCraft.DevTools.Repositories.Abstraction;
+using DotNetCraft.DevTools.Repositories.Abstraction.Exceptions;
 using DotNetCraft.DevTools.Repositories.Sql;
 using DotNetCraft.DevTools.Repositories.SQL.Tests.DbContexts;
 using DotNetCraft.DevTools.Repositories.SQL.Tests.Entities;
@@ -62,8 +62,6 @@ namespace DotNetCraft.DevTools.Repositories.SQL.Tests
                 };
                 var res = await rep.InsertAsync(person);
                 Assert.AreEqual(100, res.Id);
-
-                await rep.SaveChangesAsync();
             }
 
             var rep2 = new GenericRepository<TestDbContext,Person, long>(DbContext, logger);
@@ -87,7 +85,6 @@ namespace DotNetCraft.DevTools.Repositories.SQL.Tests
 
             var rep = new GenericRepository<TestDbContext,Person, long>(DbContext, logger);
             var res = await rep.UpdateAsync(person, CancellationToken.None);
-            await rep.SaveChangesAsync();
             Assert.AreEqual(5, res.Id);
             Assert.AreEqual("updated", res.Name);
 
@@ -105,7 +102,6 @@ namespace DotNetCraft.DevTools.Repositories.SQL.Tests
 
             var rep = new GenericRepository<TestDbContext,Person, long>(DbContext, logger);
             var res = await rep.DeleteAsync(5);
-            await rep.SaveChangesAsync();
             Assert.IsTrue(res);
 
             rep = new GenericRepository<TestDbContext,Person, long>(DbContext, logger);
@@ -124,7 +120,6 @@ namespace DotNetCraft.DevTools.Repositories.SQL.Tests
 
             rep = new GenericRepository<TestDbContext,Person, long>(DbContext, logger);
             var res = await rep.DeleteAsync(res2);
-            await rep.SaveChangesAsync();
             Assert.IsTrue(res);
 
             rep = new GenericRepository<TestDbContext,Person, long>(DbContext, logger);

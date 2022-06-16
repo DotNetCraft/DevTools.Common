@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using DotNetCraft.DevTools.Repositories.Abstraction.Interfaces;
 using Microsoft.Extensions.Logging;
 
 namespace DotNetCraft.DevTools.Repositories.Abstraction

@@ -1,8 +1,10 @@
 ﻿using System.Threading.Tasks;
 using DotNetCraft.DevTools.Repositories.Abstraction;
+using DotNetCraft.DevTools.Repositories.Abstraction.Interfaces;
 using DotNetCraft.DevTools.Repositories.Sql;
 using DotNetCraft.DevTools.Repositories.SQL.Tests.DbContexts;
 using DotNetCraft.DevTools.Repositories.SQL.Tests.Entities;
+using DotNetCraft.DevTools.Repositories.SQL.Tests.Repositories;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
@@ -16,15 +18,15 @@ namespace DotNetCraft.DevTools.Repositories.SQL.Tests
         public async Task UnitOfWorkTest()
         {
             var logger = new NullLogger<GenericUnitOfWork>();
-            var logger2 = new NullLogger<GenericRepository<TestDbContext, Person, long>>();
-            var fakeRep = new GenericRepository<TestDbContext, Person, long>(DbContext, logger2);
+            var logger2 = new NullLogger<PersonRepository>();
+            var fakeRep = new PersonRepository(DbContext, logger2);
 
             var repositoryFactory = Substitute.For<IRepositoryFactory>();
-            repositoryFactory.GetRepository<Person, long>().Returns(fakeRep);
+            repositoryFactory.CreateRepository<IPersonRepository>().Returns(fakeRep);
 
             using (var unitOfWork = new GenericUnitOfWork(repositoryFactory, DbContext, logger))
             {
-                var repository = unitOfWork.GetRepository<Person, long>();
+                var repository = unitOfWork.GetRepository<IPersonRepository>();
 
                 var person = new Person
                 {

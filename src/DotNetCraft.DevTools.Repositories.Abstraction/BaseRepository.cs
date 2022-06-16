@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using DotNetCraft.DevTools.Repositories.Abstraction.Exceptions;
+using DotNetCraft.DevTools.Repositories.Abstraction.Interfaces;
 using Microsoft.Extensions.Logging;
 
 namespace DotNetCraft.DevTools.Repositories.Abstraction
 {
-    public abstract class BaseRepository<TEntity, TIdentifier>: IRepository<TEntity, TIdentifier> 
+    public abstract class BaseRepository<TEntity, TIdentifier> : IRepository<TEntity, TIdentifier>
         where TEntity : class
     {
         private readonly ILogger<BaseRepository<TEntity, TIdentifier>> _logger;
@@ -24,8 +26,6 @@ namespace DotNetCraft.DevTools.Repositories.Abstraction
         protected abstract Task<TEntity> OnUpdateAsync(TEntity entity, CancellationToken cancellationToken);
         protected abstract Task<bool> OnDeleteAsync(TEntity entity, CancellationToken cancellationToken);
         protected abstract Task<bool> OnDeleteAsync(TIdentifier entityId, CancellationToken cancellationToken);
-
-        protected abstract Task<int> OnSaveChanges(CancellationToken cancellationToken);
 
         public async Task<TEntity> GetAsync(TIdentifier entityId, CancellationToken cancellationToken = default)
         {
@@ -128,22 +128,6 @@ namespace DotNetCraft.DevTools.Repositories.Abstraction
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Failed to delete {_entityType.Name} by id {entityId}: {ex.Message}");
-                throw;
-            }
-        }
-
-        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            try
-            {
-                _logger.LogTrace("Saving changes...");
-                var result = await OnSaveChanges(cancellationToken);
-                _logger.LogTrace($"Changes were saved. (Records: {result})");
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, $"Failed to save changes: {ex.Message}");
                 throw;
             }
         }

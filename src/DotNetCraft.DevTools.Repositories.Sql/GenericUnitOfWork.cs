@@ -2,6 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using DotNetCraft.DevTools.Repositories.Abstraction;
+using DotNetCraft.DevTools.Repositories.Abstraction.Exceptions;
+using DotNetCraft.DevTools.Repositories.Abstraction.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
@@ -60,10 +62,9 @@ namespace DotNetCraft.DevTools.Repositories.Sql
             base.Dispose(disposing);
         }
 
-        public IRepository<TEntity, TIdentifier> GetRepository<TEntity, TIdentifier>() 
-            where TEntity : class
+        public TRepository GetRepository<TRepository>()
         {
-            var repository = _repositoryFactory.GetRepository<TEntity, TIdentifier>();
+            var repository = _repositoryFactory.CreateRepository<TRepository>();
             return repository;
         }
     }

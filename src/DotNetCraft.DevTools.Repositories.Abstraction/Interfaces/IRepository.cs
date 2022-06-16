@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DotNetCraft.DevTools.Repositories.Abstraction
+namespace DotNetCraft.DevTools.Repositories.Abstraction.Interfaces
 {
     public interface IRepository<TEntity, in TIdentifier>
         where TEntity : class
@@ -13,7 +13,5 @@ namespace DotNetCraft.DevTools.Repositories.Abstraction
         Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default);
         Task<bool> DeleteAsync(TEntity entity, CancellationToken cancellationToken = default);
         Task<bool> DeleteAsync(TIdentifier entityId, CancellationToken cancellationToken = default);
-
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

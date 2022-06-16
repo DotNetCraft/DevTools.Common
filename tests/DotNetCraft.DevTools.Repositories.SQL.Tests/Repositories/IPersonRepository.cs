@@ -1,4 +1,5 @@
 ﻿using DotNetCraft.DevTools.Repositories.Abstraction;
+using DotNetCraft.DevTools.Repositories.Abstraction.Interfaces;
 using DotNetCraft.DevTools.Repositories.Sql;
 using DotNetCraft.DevTools.Repositories.SQL.Tests.DbContexts;
 using DotNetCraft.DevTools.Repositories.SQL.Tests.Entities;
@@ -12,7 +13,7 @@ namespace DotNetCraft.DevTools.Repositories.SQL.Tests.Repositories
 
     public class PersonRepository : GenericRepository<TestDbContext, Person, long>, IPersonRepository
     {
-        public PersonRepository(TestDbContext dbContext, ILogger<BaseRepository<Person, long>> logger) : base(dbContext, logger)
+        public PersonRepository(TestDbContext dbContext, ILogger<PersonRepository> logger) : base(dbContext, logger)
         {
         }
     }

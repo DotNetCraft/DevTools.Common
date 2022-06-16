@@ -1,5 +1,5 @@
 ﻿using System;
-using DotNetCraft.DevTools.Repositories.Abstraction;
+using DotNetCraft.DevTools.Repositories.Abstraction.Interfaces;
 using DotNetCraft.DevTools.Repositories.Sql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
